@@ -9,6 +9,11 @@ const App = () => {
     setTasks([...tasks, { id: Date.now(), text: newTask, completed: false }]);
   };
 
+  const deleteTask = (taskId) => {
+    // the .filter() create a new set of array
+    setTasks(tasks.filter(task => task.id !== taskId));
+  };
+
   const toggleTaskCompletion = (taskId) => {
     setTasks(tasks.map(task => 
       task.id === taskId 
@@ -26,7 +31,7 @@ const App = () => {
       <h1 className='mb-20 text-center'>This is a To Do List App</h1>
 
       <ToDoForm onAddTask={handleAddTask} />
-      <TodoList tasks={tasks} onToggleComplete={toggleTaskCompletion} />
+      <TodoList tasks={tasks} onToggleComplete={toggleTaskCompletion} onToggleDelete={deleteTask}/> 
     </div>
   )
 }
