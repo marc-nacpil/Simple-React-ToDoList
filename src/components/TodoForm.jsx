@@ -49,29 +49,3 @@ const ToDoForm = ({onAddTask}) => {
 };
 
 export default ToDoForm;
-
-// import React, { useState } from "react";
-
-// const ToDoForm = () => {
-//   const [task, setTask] = useState("");
-
-//   const handleSubmission = (props) => {
-//     if (task.trim()){
-//         setTask()
-//     } 
-
-//   }
-
-//   return (
-//     <div>
-//       <h1>Enter a Task Here</h1>
-
-//       <div>
-//         <input type="text" value={task} onChange={(e) => setTask(e.target.value)}/>
-//         <button> </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ToDoForm;
