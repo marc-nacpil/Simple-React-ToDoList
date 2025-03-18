@@ -5,15 +5,18 @@ import TodoList from './components/TodoList';
 const App = () => {
   const [tasks, setTasks] = useState([]);
 
+  // Function to add a task
   const handleAddTask = (newTask) => {
     setTasks([...tasks, { id: Date.now(), text: newTask, completed: false }]);
   };
 
+  // Function to delete a task
   const deleteTask = (taskId) => {
     // the .filter() create a new set of array
     setTasks(tasks.filter(task => task.id !== taskId));
   };
 
+  // Function to change the task status (Accomplished or Not Accomplished)
   const toggleTaskCompletion = (taskId) => {
     setTasks(tasks.map(task => 
       task.id === taskId 
@@ -22,6 +25,7 @@ const App = () => {
     ));
   };
 
+  // State to display the task on the browser's console
   useEffect(() => {
     console.log("List of tasks : ", tasks)
   }, [tasks])
