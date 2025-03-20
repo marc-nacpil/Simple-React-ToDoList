@@ -4,13 +4,15 @@ const TodoList = ({ tasks, onToggleComplete, onToggleDelete }) => {
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-gray-800">
-        List of Tasks
+        Pending Tasks
       </h2>
 
       <div>
         {/* 1. Checks if the array is empty, it will display the p tag */}
         {!tasks.length ? (
-          <p className="text-gray-500 text-center">No tasks added yet</p> // If the tasks is empty
+          <p className="text-gray-500 text-center mt-10 mb-5">
+            No tasks added yet
+          </p> // If the tasks is empty
         ) : (
           // 2. If the array is not empty, then it will display the task text.
           tasks.map((task) => (

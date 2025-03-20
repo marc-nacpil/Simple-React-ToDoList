@@ -25,6 +25,12 @@ const App = () => {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
+  // Function to delete a task
+  const deleteFinishedTask = (taskId) => {
+    // the .filter() create a new set of array
+    setFinishedTasks(tasks.filter((task) => task.id !== taskId));
+  };
+
   // Function to change the task status (Accomplished or Not Accomplished)
   const toggleTaskCompletion = (taskId) => {
     setTasks(
@@ -45,15 +51,16 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="mb-20 text-center">This is a To Do List App</h1>
-
       <ToDoForm onAddTask={handleAddTask} />
       <TodoList
         tasks={tasks}
         onToggleComplete={toggleTaskCompletion}
         onToggleDelete={moveTask}
       />
-      <FinishedTask finishedTasks={finishedTasks} />
+      <FinishedTask
+        finishedTasks={finishedTasks}
+        itemToDelete={deleteFinishedTask}
+      />
     </div>
   );
 };
