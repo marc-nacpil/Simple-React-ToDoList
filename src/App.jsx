@@ -1,43 +1,61 @@
-import React, { useEffect, useState } from 'react'
-import ToDoForm from './components/ToDoForm'
-import TodoList from './components/TodoList';
+import React, { useEffect, useState } from "react";
+import ToDoForm from "./components/ToDoForm";
+import TodoList from "./components/TodoList";
+import FinishedTask from "./components/FinishedTask";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+  const [finishedTasks, setFinishedTasks] = useState([]);
 
   // Function to add a task
   const handleAddTask = (newTask) => {
     setTasks([...tasks, { id: Date.now(), text: newTask, completed: false }]);
   };
 
+  // Function to move the task to the finishedTasks array and delete it from the tasks array
+  const moveTask = (taskId) => {
+    const taskToDelete = tasks.find((task) => task.id === taskId);
+    setFinishedTasks([...finishedTasks, taskToDelete]);
+    deleteTask(taskId);
+  };
+
   // Function to delete a task
   const deleteTask = (taskId) => {
     // the .filter() create a new set of array
-    setTasks(tasks.filter(task => task.id !== taskId));
+    setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
   // Function to change the task status (Accomplished or Not Accomplished)
   const toggleTaskCompletion = (taskId) => {
-    setTasks(tasks.map(task => 
-      task.id === taskId 
-        ? { ...task, completed: !task.completed }
-        : task
-    ));
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
   };
 
-  // State to display the task on the browser's console
+  // State to display the pending and finished tasks on the browser's console
   useEffect(() => {
-    console.log("List of tasks : ", tasks)
-  }, [tasks])
+    console.log("Pending Tasks : ", tasks);
+  }, [tasks]);
+
+  useEffect(() => {
+    console.log("Finished Tasks : ", finishedTasks);
+  }, [finishedTasks]);
 
   return (
     <div>
-      <h1 className='mb-20 text-center'>This is a To Do List App</h1>
+      <h1 className="mb-20 text-center">This is a To Do List App</h1>
 
       <ToDoForm onAddTask={handleAddTask} />
-      <TodoList tasks={tasks} onToggleComplete={toggleTaskCompletion} onToggleDelete={deleteTask}/> 
+      <TodoList
+        tasks={tasks}
+        onToggleComplete={toggleTaskCompletion}
+        onToggleDelete={moveTask}
+      />
+      <FinishedTask finishedTasks={finishedTasks} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

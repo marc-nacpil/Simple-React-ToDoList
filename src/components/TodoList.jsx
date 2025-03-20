@@ -14,14 +14,18 @@ const TodoList = ({ tasks, onToggleComplete, onToggleDelete }) => {
         ) : (
           // 2. If the array is not empty, then it will display the task text.
           tasks.map((task) => (
-            <div key={task.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 mt-3">
-
+            <div
+              key={task.id}
+              className="flex justify-between items-center p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 mt-3"
+            >
               {/* Displays the name of the task */}
               <span>{task.text}</span>
 
               <div className="flex items-center gap-2">
                 {/* Condition Statment for the color fo the test*/}
-                <span className={task.completed ? "text-green-800" : "text-red-800"} >
+                <span
+                  className={task.completed ? "text-green-800" : "text-red-800"}
+                >
                   {task.completed ? "Accomplished" : "Not accomplished"}
                 </span>
 
