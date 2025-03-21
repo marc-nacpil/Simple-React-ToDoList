@@ -1,14 +1,13 @@
-@import "tailwindcss"; 
+@import "tailwindcss";
 
-
-@layer base{
-    h2{
-        @apply text-xl font-semibold mb-4 text-gray-800
-    }
+@layer base {
+  h2 {
+    @apply text-xl font-semibold mb-4 text-gray-800;
+  }
 }
 
 @layer components {
-    .base-card{
-        @apply max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md
-    }
+  .base-card {
+    @apply max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md;
+  }
 }
