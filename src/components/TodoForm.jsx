@@ -16,7 +16,7 @@ const ToDoForm = ({ onAddTask }) => {
 
   // Function for the Enter Key
   const enterKey = (e) => {
-    if ((e.enterKey = "Enter")) {
+    if (e.key === "Enter") {
       handleSubmit();
     }
   };
@@ -33,6 +33,7 @@ const ToDoForm = ({ onAddTask }) => {
             placeholder="What do you need to do?"
             value={task}
             onChange={(e) => setTask(e.target.value)}
+            onKeyDown={enterKey}
           />
         </div>
 

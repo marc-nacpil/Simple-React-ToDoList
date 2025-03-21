@@ -25,8 +25,10 @@ const App = () => {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
-  const clearTasks = () => {
-    setFinishedTasks([]);
+  const clearTasks = (data) => {
+    {
+      data === tasks ? setTasks([]) : setFinishedTasks([]);
+    }
   };
 
   // Function to delete a task
@@ -62,6 +64,7 @@ const App = () => {
             tasks={tasks}
             onToggleComplete={toggleTaskCompletion}
             onToggleDelete={moveTask}
+            clearTask={() => clearTasks(tasks)}
           />
         </div>
 
@@ -69,7 +72,7 @@ const App = () => {
           <FinishedTask
             finishedTasks={finishedTasks}
             itemToDelete={deleteFinishedTask}
-            clearTask={clearTasks}
+            clearTask={() => clearTasks(finishedTasks)}
           />
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
-const TodoList = ({ tasks, onToggleComplete, onToggleDelete }) => {
+const TodoList = ({ tasks, onToggleComplete, onToggleDelete, clearTask }) => {
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-gray-800">
@@ -18,7 +19,7 @@ const TodoList = ({ tasks, onToggleComplete, onToggleDelete }) => {
           tasks.map((task) => (
             <div
               key={task.id}
-              className="flex justify-between items-center p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 mt-3"
+              className="flex justify-between items-center p-3 bg-gray-50 mb-4 rounded-lg border border-gray-200 hover:bg-gray-100 mt-3"
             >
               {/* Displays the name of the task */}
               <span>{task.text}</span>
@@ -57,6 +58,11 @@ const TodoList = ({ tasks, onToggleComplete, onToggleDelete }) => {
           ))
         )}
       </div>
+      {tasks.length >= 2 && (
+        <Button buttonName="Clear" action={clearTask}>
+          Hello
+        </Button>
+      )}
     </div>
   );
 };
