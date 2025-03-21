@@ -2,7 +2,7 @@ import React from "react";
 
 const TodoItem = ({ task, onToggleDelete }) => {
   return (
-    <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 mt-3">
+    <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg border my-4 border-gray-200 hover:bg-gray-100 mt-3">
       {task.text}
       <button
         onClick={() => onToggleDelete(task.id)}

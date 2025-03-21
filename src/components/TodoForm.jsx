@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
 const ToDoForm = ({ onAddTask }) => {
   // State
@@ -35,13 +36,7 @@ const ToDoForm = ({ onAddTask }) => {
           />
         </div>
 
-        <button
-          type="button"
-          className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-colors duration-200"
-          onClick={handleSubmit}
-        >
-          Add Task
-        </button>
+        <Button buttonName="Add Task" action={handleSubmit}></Button>
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 import React from "react";
 import TodoItem from "./TodoItem";
+import Button from "./Button";
 
-const FinishedTask = ({ finishedTasks, itemToDelete }) => {
+const FinishedTask = ({ finishedTasks, itemToDelete, clearTask }) => {
   return (
     <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-xl font-semibold mb-4 text-gray-800">
@@ -14,14 +15,16 @@ const FinishedTask = ({ finishedTasks, itemToDelete }) => {
           No tasks added yet
         </p> // If the tasks is empty
       ) : (
-        // If there is, it will use the map() function to display each task according to its ID.
-        finishedTasks.map((task) => (
-          <TodoItem
-            key={task.id}
-            task={task}
-            onToggleDelete={itemToDelete}
-          ></TodoItem>
-        ))
+        <>
+          {finishedTasks.map((task) => (
+            <TodoItem
+              key={task.id}
+              task={task}
+              onToggleDelete={itemToDelete}
+            ></TodoItem>
+          ))}
+          <Button buttonName="Clear" action={clearTask}></Button>
+        </>
       )}
     </div>
   );

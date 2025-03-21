@@ -25,10 +25,14 @@ const App = () => {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
+  const clearTasks = () => {
+    setFinishedTasks([]);
+  };
+
   // Function to delete a task
   const deleteFinishedTask = (taskId) => {
     // the .filter() create a new set of array
-    setFinishedTasks(tasks.filter((task) => task.id !== taskId));
+    setFinishedTasks(finishedTasks.filter((task) => task.id !== taskId));
   };
 
   // Function to change the task status (Accomplished or Not Accomplished)
@@ -50,17 +54,25 @@ const App = () => {
   }, [finishedTasks]);
 
   return (
-    <div>
-      <ToDoForm onAddTask={handleAddTask} />
-      <TodoList
-        tasks={tasks}
-        onToggleComplete={toggleTaskCompletion}
-        onToggleDelete={moveTask}
-      />
-      <FinishedTask
-        finishedTasks={finishedTasks}
-        itemToDelete={deleteFinishedTask}
-      />
+    <div className="container mx-auto p-6">
+      <div className="flex flex-col md:flex-row gap-6">
+        <div className="flex-1">
+          <ToDoForm onAddTask={handleAddTask} />
+          <TodoList
+            tasks={tasks}
+            onToggleComplete={toggleTaskCompletion}
+            onToggleDelete={moveTask}
+          />
+        </div>
+
+        <div className="flex-1">
+          <FinishedTask
+            finishedTasks={finishedTasks}
+            itemToDelete={deleteFinishedTask}
+            clearTask={clearTasks}
+          />
+        </div>
+      </div>
     </div>
   );
 };
