@@ -4,10 +4,8 @@ import Button from "./Button";
 
 const FinishedTask = ({ finishedTasks, itemToDelete, clearTask }) => {
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4 text-gray-800">
-        Finished Tasks
-      </h2>
+    <div className="base-card">
+      <h2>Finished Tasks</h2>
 
       {/* 1. It checks if there are tasks store in the array. */}
       {!finishedTasks.length ? (

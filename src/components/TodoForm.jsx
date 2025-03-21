@@ -22,8 +22,8 @@ const ToDoForm = ({ onAddTask }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4 text-gray-800">Add New Task</h2>
+    <div className="base-card">
+      <h2>Add New Task</h2>
 
       <div className="space-y-4">
         <div className="flex flex-col">

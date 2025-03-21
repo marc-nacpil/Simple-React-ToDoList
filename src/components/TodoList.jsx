@@ -3,10 +3,8 @@ import Button from "./Button";
 
 const TodoList = ({ tasks, onToggleComplete, onToggleDelete, clearTask }) => {
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4 text-gray-800">
-        Pending Tasks
-      </h2>
+    <div className="base-card">
+      <h2>Pending Tasks</h2>
 
       <div>
         {/* 1. Checks if the array is empty, it will display the p tag */}
