@@ -23,7 +23,10 @@ const FinishedTask = ({ finishedTasks, itemToDelete, clearTask }) => {
               onToggleDelete={itemToDelete}
             ></TodoItem>
           ))}
-          <Button buttonName="Clear" action={clearTask}></Button>
+
+          {finishedTasks.length >= 2 && (
+            <Button buttonName="Clear" action={clearTask}></Button>
+          )}
         </>
       )}
     </div>
