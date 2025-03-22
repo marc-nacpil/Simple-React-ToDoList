@@ -28,7 +28,6 @@ const ToDoForm = ({ onAddTask }) => {
       <div className="space-y-4">
         <div className="flex flex-col">
           <input
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-300 focus:border-blue-500 outline-none transition-all"
             type="text"
             placeholder="What do you need to do?"
             value={task}
